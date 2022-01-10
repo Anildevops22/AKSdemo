@@ -1,14 +1,14 @@
-provider "azurerm" {
-    features {}
+terraform {
+  required_version = ">= 0.12"
+  backend "azurerm" {
+    resource_group_name  = "aksdemo-tfstate-rg"
+    storage_account_name = "aksdemotfstate"
+    container_name       = "aksdemo-tfstate"
+    key                  = "terraform.tfstate"
+  }
 }
 
-terraform {
-    backend "azurerm" {
-      # resource_group_name = "thomasthorntoncloud"   
-      # storage_account_name = "thomasthorntontfstate"
-      # container_name = "aksdeployazuredevops"
-    }
-}
+
 
 provider "azurerm" {  
     version = ">=2.4.0"  
